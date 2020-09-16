@@ -1,0 +1,35 @@
+<MainScreen>:
+    name: "main"
+
+    GridLayout:
+        size_hint: None, None
+        size: root.size
+        rows: 2
+
+        GridLayout:
+            size_hint: None, None
+            height: 480
+            cols: 2
+
+            # Just an empty widget to reserve space for camera preview
+            Widget:
+                width: 640
+                size_hint: None, None
+                height: self.parent.height
+
+            Label:
+                size_hint: None, None
+                width: 384
+                height: self.parent.height
+                padding: [16, 16]
+                font_color: [1, 1, 1, 1]
+                font_size: "20sp"
+                text: root.decoded_text
+                text_size: self.size
+                halign: "left"
+                valign: "top"
+
+        Button:
+            on_release: root.quit_app()
+            text: "Quit"
+            font_size: "28sp"
